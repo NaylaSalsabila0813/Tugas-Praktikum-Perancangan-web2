@@ -1,0 +1,46 @@
+<?php
+
+// Deret a
+function generateA($n = 7) {
+    $a = [4];
+    $diff = 2;
+    for ($i = 1; $i < $n; $i++) {
+        $a[] = $a[$i - 1] + $diff;
+        $diff++;
+    }
+    return $a;
+}
+
+// Deret b
+function generateB($n = 7) {
+    $b = [];
+    $val = 2;
+    while (count($b) < $n) {
+        $b[] = $val;
+        $b[] = $val;
+        $val++;
+    }
+    return array_slice($b, 0, $n);
+}
+
+// Deret c
+function generateC($n = 7) {
+    $c = [];
+    $odd = 1;
+    $even = 9;
+    for ($i = 0; $i < $n; $i++) {
+        if ($i % 2 == 0) {
+            $c[] = $odd++;
+        } else {
+            $c[] = $even++;
+        }
+    }
+    return $c;
+}
+
+// Cetak hasil
+echo "a. " . implode(" ", generateA()) . "\n";
+echo "b. " . implode(" ", generateB()) . "\n";
+echo "c. " . implode(" ", generateC()) . "\n";
+
+?>
